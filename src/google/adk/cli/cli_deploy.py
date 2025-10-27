@@ -333,7 +333,7 @@ def to_cloud_run(
     # Add any remaining extra passthrough args
     gcloud_cmd.extend(extra_args_without_labels)
 
-    subprocess.run(gcloud_cmd, check=True)
+    subprocess.run(gcloud_cmd, check=True, shell=True)
   finally:
     click.echo(f'Cleaning up the temp folder: {temp_folder}')
     shutil.rmtree(temp_folder)
